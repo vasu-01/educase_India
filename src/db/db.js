@@ -14,6 +14,13 @@ const connectDB = async () => {
         database: process.env.DB_NAME,
         port: process.env.DB_PORT || 3306,
       });
+      await connection.query(`CREATE TABLE IF NOT EXISTS schools (
+          id INT AUTO_INCREMENT PRIMARY KEY,
+          name VARCHAR(255) NOT NULL,
+          address VARCHAR(255) NOT NULL,
+          latitude FLOAT NOT NULL,
+          longitude FLOAT NOT NULL
+          )`);
       console.log("MySQL connected || DB Host:", connection.config.host);
     }
     return connection;
