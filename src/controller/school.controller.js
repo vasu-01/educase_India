@@ -2,6 +2,7 @@ import { connection } from "../db/db.js";
 import { getDistance } from "geolib";
 
 const addSchool = async (req, res) => {
+  console.log("incoming req.body", req.body);
   try {
     const { name, address, latitude, longitude } = req.body;
 
